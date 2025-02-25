@@ -10,16 +10,47 @@ public class Camping implements InCamping {
     private ArrayList <Client> clients;
     private LlistaReserves reserves;
 
+    // Constructor:
     public Camping(String nom){
         this.nom = nom;
     }
-
+    //Getters:
     public LlistaReserves getReserves() {
+
         return reserves;
     }
 
     public float getMida() {
+
         return mida;
+    }
+
+    public String getNom(){
+
+        return nom;
+    }
+
+    public ArrayList<Allotjament> getLlistaAllotjaments(){
+
+        return allotjaments;
+    }
+
+    public ArrayList<Client> getLlistaClients(){
+
+        return clients;
+    }
+
+    public int getNumAllotjaments(){
+
+        return allotjaments.size();
+    }
+    public int getNumReserves(){
+
+        return reserves.getNumReserves();
+    }
+    public int getNumClients(){
+
+        return clients.size();
     }
 
 }
