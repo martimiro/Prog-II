@@ -1,5 +1,5 @@
 
-package prog2.model;
+package prog2.vista.model;
 
 /**
  * Interfície que defineix les operacions bàsiques per als allotjaments.

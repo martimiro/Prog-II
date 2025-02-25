@@ -1,4 +1,4 @@
-package prog2.vista;
+package prog2.vista.model;
 
 import java.time.LocalDate;
 

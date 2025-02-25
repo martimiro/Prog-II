@@ -3,7 +3,7 @@ package prog2.model;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import prog2.vista.ExcepcioReserva;
+import prog2.vista.vista.ExcepcioReserva;
 
 
 public class ClientTest {

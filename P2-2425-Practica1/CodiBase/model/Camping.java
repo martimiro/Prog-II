@@ -1,8 +1,8 @@
-package prog2.vista;
+package prog2.vista.model;
 
 import java.util.ArrayList;
 
-public class Camping implements prog2.model.InCamping {
+public class Camping implements InCamping {
     //Atributs
     private String nom;
     private float mida;

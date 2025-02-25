@@ -1,6 +1,6 @@
-package prog2.vista;
+package prog2.vista.model;
 
-public abstract class Allotjament implements prog2.model.InAllotjament {
+public abstract class Allotjament implements InAllotjament {
 
     private String id;
     private String nom;

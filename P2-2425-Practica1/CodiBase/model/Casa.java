@@ -1,4 +1,4 @@
-package prog2.vista;
+package prog2.vista.model;
 
 public abstract class Casa extends  Allotjament{
     private String mida;

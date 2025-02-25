@@ -1,4 +1,4 @@
-package prog2.vista;
+package prog2.vista.model;
 
 public class Bungalow extends Casa{
     private int placesParking;
