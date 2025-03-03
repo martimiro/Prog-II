@@ -7,13 +7,13 @@ public abstract class Casa extends  Allotjament{
 
     //getters:
     public String getMida(){
-        return mida;
+        return this.mida;
     }
     public int getHabitacions(){
-        return habitacions;
+        return this.habitacions;
     }
     public int getPlaces(){
-        return places;
+        return this.places;
     }
 
     //setters:
