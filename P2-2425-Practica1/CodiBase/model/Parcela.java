@@ -4,11 +4,34 @@ public class Parcela extends Allotjament {
     private float mida;
     private boolean conexio;
 
-    public Parcela(String nom_, String idAllotjament_, float metres, boolean connexioElectrica) {
+    public Parcela(String nom_, String idAllotjament_, float mida, boolean connexioElectrica) {
         super.setNom(nom_);
         super.setId(idAllotjament_);
-        this.mida = metres;
-        this.conexio = connexioElectrica;
+        this.setMida(mida);
+        this.setConexioElectrica(connexioElectrica);
 
+    }
+    //getters:
+    public float getMida(){
+        return this.mida;
+    }
+
+    public boolean isConexioElectrica() {
+        return this.conexio;
+    }
+    //Setters:
+
+    public void setMida(float mida_){
+        this.mida = mida_;
+    }
+    public void setConexioElectrica(boolean conexio_){
+        this.conexio = conexio_;
+    }
+    //Altres:
+    public boolean CorrecteFuncionamentAmbConnexioElectrica(){
+        return true;
+    }
+    public boolean CorrecteFuncionamentSenseConnexioElectrica(){
+        return false;
     }
 }

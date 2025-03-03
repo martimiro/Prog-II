@@ -7,12 +7,20 @@ public class MobilHome extends Casa{
     //constructor:
     public MobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                      boolean terrassaBarbacoa){
-        super.super.setNom(nom_);
-        super.super.setId(idAllotjament_);
+        super.setNom(nom_);
+        super.setId(idAllotjament_);
         super.setMida(mida);
         super.setHabitacions(habitacions);
         super.setPlaces(placesPersones);
-        this.bbq = terrassaBarbacoa;
+        this.setBbq(terrassaBarbacoa);
 
+    }
+    //getter:
+    public boolean getBbq(){
+        return this.bbq;
+    }
+    //setter:
+    public void setBbq(boolean bbq_){
+        this.bbq = bbq_;
     }
 }

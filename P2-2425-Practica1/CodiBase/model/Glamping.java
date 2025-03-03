@@ -8,13 +8,28 @@ public class Glamping extends Casa{
     public Glamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                     String material, boolean casaMascota){
 
-        super.super.setNom(nom_);
-        super.super.setId(idAllotjament_);
+        super.setNom(nom_);
+        super.setId(idAllotjament_);
         super.setMida(mida);
         super.setHabitacions(habitacions);
         super.setPlaces(placesPersones);
-        this.mascota = casaMascota;
-        this.material = material;
+        this.setMascota(casaMascota);
+        this.setMaterial(material);
 
+    }
+    //getters:
+    public  String getMaterial(){
+        return this.material;
+    }
+    public boolean getMascota(){
+        return this.mascota;
+    }
+
+    //setters:
+    public void setMaterial(String material_){
+        this.material = material_;
+    }
+    public void setMascota(boolean mascota_){
+        this.mascota = mascota_;
     }
 }

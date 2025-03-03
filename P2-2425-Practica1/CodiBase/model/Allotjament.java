@@ -8,31 +8,31 @@ public abstract class Allotjament implements InAllotjament {
     private int estadaMinimaTempAlta;
 
     //getters:
-    String getNom(){
+    public String getNom(){
         return nom;
     }
-    String getId(){
+    public String getId(){
         return id;
     }
-    int getEstadaMinimaTempBaixa(){
+    public int getEstadaMinimaTempBaixa(){
         return estadaMinimaTempBaixa;
     }
-    int getGetEstadaMinimaTempAlta(){
-        return EstadaMinimaTempAlta;
+    public int getEstadaMinimaTempAlta(){
+        return estadaMinimaTempAlta;
     }
 
     //setters:
-    void setId(String id_){
+    public void setId(String id_){
         this.id = id_;
     }
-    void setNom(String nom_){
+    public void setNom(String nom_){
         this.nom = nom_;
     }
-    void setEstadaMinimaTempBaixa(int num){
+    public void setEstadaMinimaTempBaixa(int num){
         this.estadaMinimaTempBaixa = num;
     }
-    void setEstadaMinimaTempAlta(int num){
-        this.estadaMinimaTempAlta;
+    public void setEstadaMinimaTempAlta(int num){
+        this.estadaMinimaTempAlta = num;
     }
 
 }

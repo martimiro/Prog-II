@@ -15,8 +15,15 @@ public abstract class Casa extends  Allotjament{
     public int getPlaces(){
         return places;
     }
+
     //setters:
     public void setMida(String mida_){
         this.mida = mida_;
+    }
+    public void setHabitacions(int hab_){
+        this.habitacions = hab_;
+    }
+    public void setPlaces(int places_){
+        this.places = places_;
     }
 }

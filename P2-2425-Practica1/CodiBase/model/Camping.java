@@ -15,12 +15,12 @@ public class Camping implements InCamping {
         this.nom = nom;
     }
     //Getters:
-    public LlistaReserves getReserves() {
+    public LlistaReserves getLlistaReserves() {
 
         return reserves;
     }
 
-    public float getMida() {
+    public float calculMidaTotalParceles() {
 
         return mida;
     }
