@@ -1,7 +1,7 @@
 
 package prog2.vista.vista;
 
-import prog2.model.Camping;
+import prog2.vista.model.Camping;
 import prog2.vista.model.Camping;
 
 

@@ -74,54 +74,104 @@ public class Camping implements InCamping {
 
         return clients.size();
     }
+    public boolean allotjamentRepetit(String id_){
 
-    public boolean clientRepetit(String nom_, String dni_){
         boolean repetit = false;
+        Iterator <Allotjament> itrAllotjaments = allotjaments.iterator();
+
+        while(itrAllotjaments.hasNext() && !repetit){
+            repetit = itrAllotjaments.next().getId().equals(id_);
+        }
+
+
+        return repetit;
+    }
+    public boolean clientRepetit(String dni_){
+
+        boolean repetit = false;
+        Iterator <Client> itrClients = clients.iterator();
+
+        while(itrClients.hasNext() && !repetit){
+            repetit = itrClients.next().getDni().equals(dni_);
+        }
         return repetit;
     }
 
     public void afegirClient(String nom_, String dni_) throws ExcepcioReserva {
 
-        if(!clientRepetit(nom_,dni_)) {
+        if(!clientRepetit(dni_)) {
+
             Client clientNou = new Client(nom_, dni_);
             clients.addLast(clientNou);
+
         } else {
 
-            throw ExcepcioReserva ("Aquest client ja existeix.");
+            throw new ExcepcioReserva ("Aquest client ja existeix.");
         }
 
     }
 
     public void afegirParcela(String nom_, String idAllotjament_, float metres, boolean connexioElectrica) {
 
-        Parcela parcelaNova = new Parcela(nom_, idAllotjament_, metres, connexioElectrica);
-        allotjaments.addLast(parcelaNova);
+        if (!allotjamentRepetit(idAllotjament_)) {
+
+            Parcela parcelaNova = new Parcela(nom_, idAllotjament_, metres, connexioElectrica);
+            allotjaments.addLast(parcelaNova);
+
+        } else {
+            System.out.println("Ja existeix un allotjament amb aquesta Id.");
+        }
     }
 
     public void afegirBungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
 
-        Bungalow bungalowNou = new Bungalow(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
-        allotjaments.addLast(bungalowNou);
+        if (!allotjamentRepetit(idAllotjament_)) {
+
+            Bungalow bungalowNou = new Bungalow(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+            allotjaments.addLast(bungalowNou);
+
+        } else {
+            System.out.println("Ja existeix un allotjament amb aquesta Id.");
+        }
     }
 
     public void afegirBungalowPremium(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                       int placesParquing, boolean terrassa, boolean tv, boolean aireFred,
                                       boolean serveisExtra, String codiWifi) {
-        BungalowPremium bungalowPremiumNou = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
-        allotjaments.addLast(bungalowPremiumNou);
+        if (!allotjamentRepetit(idAllotjament_)) {
+
+            BungalowPremium bungalowPremiumNou = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
+            allotjaments.addLast(bungalowPremiumNou);
+
+        } else {
+            System.out.println("Ja existeix un allotjament amb aquesta Id.");
+        }
     }
 
     public void afegirGlamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                String material, boolean casaMascota) {
+        if (!allotjamentRepetit(idAllotjament_)) {
+
         Glamping glampingNou = new Glamping(nom_, idAllotjament_, mida, habitacions, placesPersones, material, casaMascota);
         allotjaments.addLast(glampingNou);
+
+        } else {
+            System.out.println("Ja existeix un allotjament amb aquesta Id.");
+        }
+
     }
 
     public void afegirMobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                 boolean terrassaBarbacoa) {
+        if (!allotjamentRepetit(idAllotjament_)) {
+
         MobilHome mobilHomeNou = new MobilHome(nom_, idAllotjament_, mida, habitacions, placesPersones, terrassaBarbacoa);
         allotjaments.addLast(mobilHomeNou);
+
+        } else {
+            System.out.println("Ja existeix un allotjament amb aquesta Id.");
+        }
     }
 
     public void afegirReserva(String id_, String dni_, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
@@ -130,35 +180,14 @@ public class Camping implements InCamping {
         Allotjament allotjamentActual;
         Client clientActual;
 
-        Iterator<Client> itrClient = clients.iterator();
+        clientActual = buscaClient(dni_);
+        allotjamentActual = buscaAllotjament(id_);
 
-        while (itrClient.hasNext() && !condicio) {
-
-            clientActual = itrClient.next();
-
-            if (clientActual.getDni() == dni_) {
-
-                condicio = true;
-
-            }
-        }
-        condicio = false;
-        Iterator<Allotjament> itrAllotjament = allotjaments.iterator();
-
-        while (itrAllotjament.hasNext() && !condicio) {
-
-            allotjamentActual = itrAllotjament.next();
-
-
-            if (allotjamentActual.getId() == id_) {
-                this.reserves.afegirReserva(allotjamentActual, clientActual, dataEntrada, dataSortida);
-                condicio = true;
-            }
-
-        }
+        reserves.afegirReserva(allotjamentActual,clientActual,dataEntrada,dataSortida);
     }
 
-    public int calculaAllotjamentsOperatius() {
+
+    public int calculAllotjamentsOperatius() {
         int comptador = 0;
         Allotjament allotjamentActual;
 
@@ -191,10 +220,53 @@ public class Camping implements InCamping {
             }
 
         }
+        return allotjamentMinim;
     }
 
+    public Allotjament buscaAllotjament(String id_) throws ExcepcioReserva{
 
+        Allotjament allotjamentActual;
+        boolean condicio=false;
 
+        if (allotjamentRepetit(id_)){
+            Iterator<Allotjament> itrAllotjaments = allotjaments.iterator();
+
+            while (itrAllotjaments.hasNext() && !condicio){
+
+                allotjamentActual= itrAllotjaments.next();
+                condicio = allotjamentActual.getId().equals(id_);
+            }
+        } else {
+            throw new ExcepcioReserva("No existeix cap allotjament amb aquesta Id.");
+        }
+
+        return allotjamentActual;
+    }
+
+    public Client buscaClient(String dni_) throws ExcepcioReserva{
+
+        boolean condicio = false;
+        Client clientActual;
+
+        if (clientRepetit(dni_)) {
+
+            Iterator<Client> itrClient = clients.iterator();
+
+            while (itrClient.hasNext() && !condicio) {
+
+                clientActual = itrClient.next();
+
+                if (clientActual.getDni().equals(dni_)) {
+
+                    condicio = true;
+
+                }
+            }
+            return clientActual;
+        } else {
+            throw new ExcepcioReserva("El Dni proporcionat no coincideix amb el de cap client.");
+        }
+    }
 }
 
 
