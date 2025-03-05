@@ -28,10 +28,8 @@ public class Parcela extends Allotjament {
         this.conexio = conexio_;
     }
     //Altres:
-    public boolean CorrecteFuncionamentAmbConnexioElectrica(){
-        return true;
-    }
-    public boolean CorrecteFuncionamentSenseConnexioElectrica(){
-        return false;
+    public boolean correcteFuncionament(){
+
+        return this.isConexioElectrica();
     }
 }

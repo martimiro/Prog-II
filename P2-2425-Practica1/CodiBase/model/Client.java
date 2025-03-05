@@ -6,12 +6,14 @@ public class Client {
     private String nom;
     private String dni;
 
-    public Client(String nom_ ,String dni){
+    public Client(String nom_ ,String dni) throws ExcepcioReserva{
         if (dniCorrecte(dni)) {
             this.setNom(nom_);
             this.setDni(dni);
         } else {
-            throw ExcepcioReserva ("El DNI ha de tindre 9 xifres.")
+
+            throw new ExcepcioReserva ("El DNI ha de tindre 9 xifres.");
+
         }
     }
     //Getters:
@@ -30,15 +32,12 @@ public class Client {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    // Altres:
-    public boolean dniCorrecte(String dni){
 
-        if (dni.length() == 9){
-            return true;
-        }else{
-            return false;
-        }
+    // Altres:
+    public boolean dniCorrecte(String dni) {
+        return dni.length() == 9;
     }
+
 
 
 }

@@ -4,8 +4,8 @@ public abstract class Allotjament implements InAllotjament {
 
     private String id;
     private String nom;
-    private int estadaMinimaTempBaixa;
-    private int estadaMinimaTempAlta;
+    private long estadaMinimaTempBaixa;
+    private long estadaMinimaTempAlta;
 
     //getters:
     public String getNom(){
@@ -14,11 +14,15 @@ public abstract class Allotjament implements InAllotjament {
     public String getId(){
         return id;
     }
-    public int getEstadaMinimaTempBaixa(){
-        return estadaMinimaTempBaixa;
-    }
-    public int getEstadaMinimaTempAlta(){
-        return estadaMinimaTempAlta;
+
+    public long getEstadaMinima(Temp temp){
+
+        return switch (temp) {
+            case BAIXA -> estadaMinimaTempBaixa;
+            case ALTA -> estadaMinimaTempAlta;
+            default -> 0;
+        };
+
     }
 
     //setters:
@@ -28,11 +32,10 @@ public abstract class Allotjament implements InAllotjament {
     public void setNom(String nom_){
         this.nom = nom_;
     }
-    public void setEstadaMinimaTempBaixa(int num){
-        this.estadaMinimaTempBaixa = num;
-    }
-    public void setEstadaMinimaTempAlta(int num){
-        this.estadaMinimaTempAlta = num;
+    public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_){
+
+        this.estadaMinimaTempAlta = estadaMinimaALTA_ ;
+        this.estadaMinimaTempBaixa = estadaMinimaBAIXA_;
     }
 
 }

@@ -23,4 +23,8 @@ public class MobilHome extends Casa{
     public void setBbq(boolean bbq_){
         this.bbq = bbq_;
     }
+    //Altres:
+    public boolean correcteFuncionament(){
+        return this.getBbq();
+    }
 }

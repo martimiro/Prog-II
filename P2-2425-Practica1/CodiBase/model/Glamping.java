@@ -32,4 +32,11 @@ public class Glamping extends Casa{
     public void setMascota(boolean mascota_){
         this.mascota = mascota_;
     }
+
+    //Altres:
+
+
+    public boolean correcteFuncionament() {
+        return this.getMascota();
+    }
 }

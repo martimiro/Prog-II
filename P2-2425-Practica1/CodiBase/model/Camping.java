@@ -215,7 +215,7 @@ public class Camping implements InCamping {
 
             allotjamentActual = itrAllotjament.next();
 
-            if (allotjamentActual.getEstadaMinimaTempBaixa() < allotjamentMinim.getEstadaMinimaTempBaixa()){
+            if (allotjamentActual.getEstadaMinima(InAllotjament.Temp.BAIXA) < allotjamentMinim.getEstadaMinima(InAllotjament.Temp.BAIXA)){
                 allotjamentMinim = allotjamentActual;
             }
 
@@ -225,7 +225,7 @@ public class Camping implements InCamping {
 
     public Allotjament buscaAllotjament(String id_) throws ExcepcioReserva{
 
-        Allotjament allotjamentActual;
+        Allotjament allotjamentActual = null;
         boolean condicio=false;
 
         if (allotjamentRepetit(id_)){
@@ -246,7 +246,7 @@ public class Camping implements InCamping {
     public Client buscaClient(String dni_) throws ExcepcioReserva{
 
         boolean condicio = false;
-        Client clientActual;
+        Client clientActual = null;
 
         if (clientRepetit(dni_)) {
 
@@ -267,6 +267,31 @@ public class Camping implements InCamping {
             throw new ExcepcioReserva("El Dni proporcionat no coincideix amb el de cap client.");
         }
     }
+    public static InAllotjament.Temp getTemporada(LocalDate data){
+
+        LocalDate tempAltaInici = LocalDate.of(2025, 3, 21);
+        LocalDate tempAltaFinal = LocalDate.of(2025, 9, 20);
+
+        //Aquestes variables les hem fet per llegibilitat de codi.
+        boolean condicio1, condicio2;
+
+        condicio1 = data.equals(tempAltaInici)|| data.isAfter(tempAltaInici);
+        condicio2 = data.equals(tempAltaFinal) || data.isBefore(tempAltaFinal);
+
+        if(condicio1 && condicio2){
+
+            return InAllotjament.Temp.ALTA;
+
+        } else{
+
+            return InAllotjament.Temp.BAIXA;
+        }
+
+    }
+
+
+
+
 }
 
 

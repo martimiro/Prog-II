@@ -32,4 +32,10 @@ public class BungalowPremium extends Bungalow{
     public void setCodiWifi(String codiWifi_){
         this.codiWifi = codiWifi_;
     }
+
+    @Override
+    public boolean correcteFuncionament() {
+        //Notar com el .lenght()>=8 sembla una cara sorpresa amb els ulls molt oberts.
+        return super.correcteFuncionament() && (this.getCodiWifi().length()>=8) && (this.getCodiWifi().length()<= 16);
+    }
 }

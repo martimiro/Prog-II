@@ -47,4 +47,8 @@ public class Bungalow extends Casa{
         this.ac = ac_;
     }
 
+    //Altres:
+    public boolean correcteFuncionament() {
+        return this.getAc();
+    }
 }
