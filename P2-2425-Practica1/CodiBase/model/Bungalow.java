@@ -51,4 +51,9 @@ public class Bungalow extends Casa{
     public boolean correcteFuncionament() {
         return this.getAc();
     }
+
+    public String toString() {
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + 
+        super.getPlaces() + ", places del parking: " + getPlacesParking() + " ,terrasa: " + getTerrassa() + ", aire acondicionat: " + getAc();
+    }
 }

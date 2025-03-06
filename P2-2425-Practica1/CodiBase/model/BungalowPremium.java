@@ -38,4 +38,11 @@ public class BungalowPremium extends Bungalow{
         //Notar com el .lenght()>=8 sembla una cara sorpresa amb els ulls molt oberts.
         return super.correcteFuncionament() && (this.getCodiWifi().length()>=8) && (this.getCodiWifi().length()<= 16);
     }
+
+    @Override
+    public String toString() {
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + 
+        super.getPlaces() + ", places del parking: " + super.getPlacesParking() + " ,terrasa: " + super.getTerrassa() + ", aire acondicionat: " + super.getAc() + ", servis extra: " +
+        getServeisExtra() + ", codi wifi: " + getCodiWifi(); 
+    }
 }

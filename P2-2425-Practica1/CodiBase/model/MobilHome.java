@@ -27,4 +27,9 @@ public class MobilHome extends Casa{
     public boolean correcteFuncionament(){
         return this.getBbq();
     }
+
+    public String toString() {
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", habiatacions: " + super.getHabitacions() + ", places: " + 
+        super.getPlaces() + ", terrassa amb barbacoa: " + getBbq();
+    }
 }

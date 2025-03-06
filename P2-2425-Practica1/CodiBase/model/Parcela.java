@@ -32,4 +32,8 @@ public class Parcela extends Allotjament {
 
         return this.isConexioElectrica();
     }
+
+    public String toString(){
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + getMida() + ", connexió: " + isConexioElectrica();
+    }
 }
