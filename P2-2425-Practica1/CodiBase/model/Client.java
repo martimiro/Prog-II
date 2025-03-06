@@ -38,6 +38,7 @@ public class Client {
         return dni.length() == 9;
     }
 
-
-
+    public String toString() {
+        return "Nom: " + getNom() + ", DNI: " + getDni();
+    }
 }
