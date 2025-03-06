@@ -10,15 +10,35 @@ public class Reserva {
 
     public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida){
 
+        setAllotjament(allotjament);
+        setClient(client);
+        setEntrada(dataEntrada);
+        setSortida(dataSortida);
+
     }
+
+    //Getters:
     public LocalDate getEntrada(){
         return  entrada;
     }
     public LocalDate getSortida(){
         return sortida;
     }
-
     public Allotjament getAllotjament(){
         return this.allotjament;
+    }
+    //Setters:
+
+    public void setAllotjament(Allotjament allotjament) {
+        this.allotjament = allotjament;
+    }
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    public void setEntrada(LocalDate entrada) {
+        this.entrada = entrada;
+    }
+    public void setSortida(LocalDate sortida) {
+        this.sortida = sortida;
     }
 }

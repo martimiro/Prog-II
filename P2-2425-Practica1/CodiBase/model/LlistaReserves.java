@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class LlistaReserves implements InLlistaReserves {
+
     private ArrayList <Reserva> llista;
 
     public int getNumReserves() {
@@ -32,7 +33,7 @@ public class LlistaReserves implements InLlistaReserves {
         return llistaId;
     }
 
-    public boolean datesSuperposades(Reserva reserva, LocalDate dataEntrada, LocalDate dataSortida){
+    public boolean datesSuperposadesMetode(Reserva reserva, LocalDate dataEntrada, LocalDate dataSortida){
         boolean iniciDates,finalDates;
 
         iniciDates = (dataEntrada.isAfter(reserva.getEntrada()) || dataEntrada.equals(reserva.getEntrada())) && (dataEntrada.isBefore(reserva.getSortida()) || dataEntrada.equals(reserva.getSortida()));
@@ -55,13 +56,32 @@ public class LlistaReserves implements InLlistaReserves {
 
             while(itrReserves.hasNext() && !datesSuperposades){
 
+                    datesSuperposades = datesSuperposadesMetode(itrReserves.next(),dataEntrada,dataSortida);
+
+
             }
 
+            return !datesSuperposades;
+
+        } else {
+            return true;
         }
     }
 
 
     public void afegirReserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva{
 
+        if( allotjamentDisponible(allotjament,dataEntrada,dataSortida) ){
+
+            Reserva reservaNova = new Reserva(allotjament,client,dataEntrada,dataSortida);
+            this.llista.add(reservaNova);
+
+        } else {
+
+            throw new ExcepcioReserva("Aquestes dates coincideixen amb les d'una altre reserva.");
+
+        }
     }
+
+
 }

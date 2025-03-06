@@ -39,4 +39,19 @@ public class Glamping extends Casa{
     public boolean correcteFuncionament() {
         return this.getMascota();
     }
+
+    public String toString() {
+        String mascota;
+        if(this.getMascota()){
+
+            mascota = "si";
+
+        } else{
+
+            mascota = "no";
+        }
+
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + super.getPlaces()
+                + " Espai per a mascotes: " + mascota + " Material del glamping: "+material;
+    }
 }
