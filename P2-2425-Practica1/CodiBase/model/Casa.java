@@ -5,9 +5,9 @@ public abstract class Casa extends  Allotjament{
     private int habitacions;
     private int places;
 
-    public Casa(String _id,String _nom,String _mida,int habitacions, int places){
+    public Casa(String _id,String _nom,String _mida,int habitacions, int places, int estadaMinimaAlta, int estadaMinimaBaixa){
 
-        super(_id,_nom);
+        super(_id,_nom,estadaMinimaAlta,estadaMinimaBaixa);
         this.mida = _mida;
         this.habitacions = habitacions;
         this.places = places;
@@ -20,7 +20,7 @@ public abstract class Casa extends  Allotjament{
     public int getHabitacions(){
         return this.habitacions;
     }
-    public int getPlaces(){
+    public int getPlacesPersones(){
         return this.places;
     }
 
@@ -37,6 +37,6 @@ public abstract class Casa extends  Allotjament{
 
     //altres:
     public String toString(){
-        return "Mida: " + getMida() + ", habitacions: " + getHabitacions() + ", places: " + getPlaces();
+        return "Mida: " + getMida() + ", habitacions: " + getHabitacions() + ", places: " + getPlacesPersones();
     }
 }

@@ -10,40 +10,42 @@ public class Reserva {
 
     public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida){
 
-        setAllotjament(allotjament);
+        setAllotjament_(allotjament);
         setClient(client);
-        setEntrada(dataEntrada);
-        setSortida(dataSortida);
+        setDataEntrada(dataEntrada);
+        setDataSortida(dataSortida);
 
     }
 
     //Getters:
-    public LocalDate getEntrada(){
+    public LocalDate getDataEntrada(){
         return  entrada;
     }
-    public LocalDate getSortida(){
+    public LocalDate getDataSortida(){
         return sortida;
     }
-    public Allotjament getAllotjament(){
+    public Allotjament getAllotjament_(){
         return this.allotjament;
     }
-
+    public Client getClient(){
+        return this.client;
+    }
     //Setters:
-    public void setAllotjament(Allotjament allotjament) {
+    public void setAllotjament_(Allotjament allotjament) {
         this.allotjament = allotjament;
     }
     public void setClient(Client client) {
         this.client = client;
     }
-    public void setEntrada(LocalDate entrada) {
+    public void setDataEntrada(LocalDate entrada) {
         this.entrada = entrada;
     }
-    public void setSortida(LocalDate sortida) {
+    public void setDataSortida(LocalDate sortida) {
         this.sortida = sortida;
     }
 
     //Altres:
     public String toString(){
-        return "Allotjament reservat: " +this.allotjament.toString()+ "\n Client que ha fet la reserva: " + this.client.toString() + "\n Data d'entrada: "+ this.getEntrada().toString() + " Data de sortida:"+this.getSortida();
+        return "Allotjament reservat: " +this.allotjament.toString()+ "\n Client que ha fet la reserva: " + this.client.toString() + "\n Data d'entrada: "+ this.getDataEntrada().toString() + " Data de sortida:"+this.getDataSortida();
     }
 }

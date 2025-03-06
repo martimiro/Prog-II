@@ -8,9 +8,10 @@ public class Glamping extends Casa{
     public Glamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                     String material, boolean casaMascota){
 
-        super(idAllotjament_,nom_,mida,habitacions,placesPersones);
+        super(idAllotjament_,nom_,mida,habitacions,placesPersones,5,3);
         this.setMascota(casaMascota);
         this.setMaterial(material);
+
 
     }
     //getters:
@@ -47,7 +48,7 @@ public class Glamping extends Casa{
             mascota = "no";
         }
 
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + super.getPlaces()
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + super.getPlacesPersones()
                 + " Espai per a mascotes: " + mascota + " Material del glamping: "+material;
     }
 }

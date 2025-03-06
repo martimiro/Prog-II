@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import prog2.vista.vista.ExcepcioReserva;
 import prog2.vista.model.Camping;
 import static org.junit.jupiter.api.Assertions.*;
+import prog2.vista.model.*;
 
 import java.time.LocalDate;
 

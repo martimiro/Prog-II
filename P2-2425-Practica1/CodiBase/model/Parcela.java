@@ -6,9 +6,10 @@ public class Parcela extends Allotjament {
 
     public Parcela(String nom_, String idAllotjament_, float mida, boolean connexioElectrica) {
 
-        super(idAllotjament_,nom_);
+        super(idAllotjament_,nom_,4,2);
         this.setMida(mida);
-        this.setConexioElectrica(connexioElectrica);
+        this.setConnexioElectrica(connexioElectrica);
+
 
     }
     //getters:
@@ -16,7 +17,7 @@ public class Parcela extends Allotjament {
         return this.mida;
     }
 
-    public boolean isConexioElectrica() {
+    public boolean isConnexioElectrica() {
         return this.conexio;
     }
     //Setters:
@@ -24,16 +25,16 @@ public class Parcela extends Allotjament {
     public void setMida(float mida_){
         this.mida = mida_;
     }
-    public void setConexioElectrica(boolean conexio_){
+    public void setConnexioElectrica(boolean conexio_){
         this.conexio = conexio_;
     }
     //Altres:
     public boolean correcteFuncionament(){
 
-        return this.isConexioElectrica();
+        return this.isConnexioElectrica();
     }
 
     public String toString(){
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + getMida() + ", connexió: " + isConexioElectrica();
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + getMida() + ", connexió: " + isConnexioElectrica();
     }
 }

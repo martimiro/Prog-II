@@ -8,8 +8,9 @@ public class MobilHome extends Casa{
     public MobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                      boolean terrassaBarbacoa){
 
-        super(idAllotjament_,nom_,mida,habitacions,placesPersones);
+        super(idAllotjament_,nom_,mida,habitacions,placesPersones,5,3);
         this.setBbq(terrassaBarbacoa);
+
 
     }
     //getter:
@@ -27,6 +28,6 @@ public class MobilHome extends Casa{
 
     public String toString() {
         return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", habiatacions: " + super.getHabitacions() + ", places: " + 
-        super.getPlaces() + ", terrassa amb barbacoa: " + getBbq();
+        super.getPlacesPersones() + ", terrassa amb barbacoa: " + getBbq();
     }
 }

@@ -24,7 +24,7 @@ public class LlistaReserves implements InLlistaReserves {
 
             reservaActual = itrLlista.next();
 
-            if (reservaActual.getAllotjament().getId().equals(id_)){
+            if (reservaActual.getAllotjament_().getId().equals(id_)){
                 llistaId.add(reservaActual);
             }
 
@@ -36,9 +36,9 @@ public class LlistaReserves implements InLlistaReserves {
     public boolean datesSuperposadesMetode(Reserva reserva, LocalDate dataEntrada, LocalDate dataSortida){
         boolean iniciDates,finalDates;
 
-        iniciDates = (dataEntrada.isAfter(reserva.getEntrada()) || dataEntrada.equals(reserva.getEntrada())) && (dataEntrada.isBefore(reserva.getSortida()) || dataEntrada.equals(reserva.getSortida()));
+        iniciDates = (dataEntrada.isAfter(reserva.getDataEntrada()) || dataEntrada.equals(reserva.getDataEntrada())) && (dataEntrada.isBefore(reserva.getDataSortida()) || dataEntrada.equals(reserva.getDataSortida()));
 
-        finalDates =  (dataSortida.isAfter(reserva.getEntrada()) || dataSortida.equals(reserva.getEntrada())) && (dataSortida.isBefore(reserva.getSortida()) || dataSortida.equals(reserva.getSortida()));
+        finalDates =  (dataSortida.isAfter(reserva.getDataEntrada()) || dataSortida.equals(reserva.getDataEntrada())) && (dataSortida.isBefore(reserva.getDataSortida()) || dataSortida.equals(reserva.getDataSortida()));
 
 
         return iniciDates || finalDates;

@@ -1,7 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import model.Allotjament;
+import prog2.vista.model.Allotjament;
+import prog2.vista.model.InAllotjament;
 
 class AllotjamentTest {
 

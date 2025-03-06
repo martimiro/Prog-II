@@ -9,10 +9,11 @@ public abstract class Allotjament implements InAllotjament {
 
 
 
-    public Allotjament(String _id,String _nom){
+    public Allotjament(String _id,String _nom, int estadaMinimaTempAlta_, int estadaMinimaTempBaixa_ ){
 
         this.id = _id;
         this.nom = _nom;
+        setEstadaMinima(estadaMinimaTempAlta_,estadaMinimaTempBaixa_);
     }
 
 

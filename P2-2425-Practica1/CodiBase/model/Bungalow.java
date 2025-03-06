@@ -8,24 +8,25 @@ public class Bungalow extends Casa{
     public Bungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                     int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
 
-        super(idAllotjament_,nom_,mida,habitacions,placesPersones);
+        super(idAllotjament_,nom_,mida,habitacions,placesPersones,7,4);
 
         this.setPlacesParking(placesParquing);
         this.setTerrassa(terrassa);
         this.setTv(tv);
         this.setAc(aireFred);
+
     }
     //getters:
-    public int getPlacesParking(){
+    public int getPlacesParquing(){
         return this.placesParking;
     }
-    public boolean getTerrassa(){
+    public boolean isTerrassa(){
         return this.terrassa;
     }
-    public boolean getTv(){
+    public boolean isTv(){
         return this.tv;
     }
-    public boolean getAc(){
+    public boolean isAireFred(){
         return this.ac;
     }
 
@@ -45,11 +46,11 @@ public class Bungalow extends Casa{
 
     //Altres:
     public boolean correcteFuncionament() {
-        return this.getAc();
+        return this.isAireFred();
     }
 
     public String toString() {
         return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + super.getMida() + ", nombre d'habitacions: " + super.getHabitacions() + ", places: " + 
-        super.getPlaces() + ", places del parking: " + getPlacesParking() + " ,terrasa: " + getTerrassa() + ", aire acondicionat: " + getAc();
+        super.getPlacesPersones() + ", places del parking: " + getPlacesParquing() + " ,terrasa: " + isTerrassa() + ", aire acondicionat: " + isAireFred();
     }
 }

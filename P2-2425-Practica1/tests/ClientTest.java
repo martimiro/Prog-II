@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import prog2.vista.model.Client;
 import prog2.vista.vista.ExcepcioReserva;
 
 
