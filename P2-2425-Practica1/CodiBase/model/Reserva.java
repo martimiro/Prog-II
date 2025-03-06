@@ -44,6 +44,6 @@ public class Reserva {
 
     //Altres:
     public String toString(){
-        return "Allotjament reservat: " +this.allotjament.toString()+ "\n Client que ha fet la reserva: " + this.client.toString() + "\n Data d'entrada: " this.getEntrada().toString() + " Data de sortida:"+this.getSortida();
+        return "Allotjament reservat: " +this.allotjament.toString()+ "\n Client que ha fet la reserva: " + this.client.toString() + "\n Data d'entrada: "+ this.getEntrada().toString() + " Data de sortida:"+this.getSortida();
     }
 }

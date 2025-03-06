@@ -5,8 +5,8 @@ public class Parcela extends Allotjament {
     private boolean conexio;
 
     public Parcela(String nom_, String idAllotjament_, float mida, boolean connexioElectrica) {
-        super.setNom(nom_);
-        super.setId(idAllotjament_);
+
+        super(idAllotjament_,nom_);
         this.setMida(mida);
         this.setConexioElectrica(connexioElectrica);
 

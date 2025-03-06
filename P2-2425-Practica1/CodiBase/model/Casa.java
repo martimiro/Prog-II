@@ -5,6 +5,14 @@ public abstract class Casa extends  Allotjament{
     private int habitacions;
     private int places;
 
+    public Casa(String _id,String _nom,String _mida,int habitacions, int places){
+
+        super(_id,_nom);
+        this.mida = _mida;
+        this.habitacions = habitacions;
+        this.places = places;
+    }
+
     //getters:
     public String getMida(){
         return this.mida;

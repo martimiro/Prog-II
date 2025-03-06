@@ -7,6 +7,16 @@ public abstract class Allotjament implements InAllotjament {
     private long estadaMinimaTempBaixa;
     private long estadaMinimaTempAlta;
 
+
+
+    public Allotjament(String _id,String _nom){
+
+        this.id = _id;
+        this.nom = _nom;
+    }
+
+
+
     //getters:
     public String getNom(){
         return nom;
