@@ -27,8 +27,8 @@ public class Reserva {
     public Allotjament getAllotjament(){
         return this.allotjament;
     }
-    //Setters:
 
+    //Setters:
     public void setAllotjament(Allotjament allotjament) {
         this.allotjament = allotjament;
     }
@@ -40,5 +40,10 @@ public class Reserva {
     }
     public void setSortida(LocalDate sortida) {
         this.sortida = sortida;
+    }
+
+    //Altres:
+    public String toString(){
+        return "Allotjament reservat: " +this.allotjament.toString()+ "\n Client que ha fet la reserva: " + this.client.toString() + "\n Data d'entrada: " this.getEntrada().toString() + " Data de sortida:"+this.getSortida();
     }
 }
