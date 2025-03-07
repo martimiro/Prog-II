@@ -297,7 +297,7 @@ public class Camping implements InCamping {
             }
             return clientActual;
         } else {
-            throw new ExcepcioReserva("El Dni proporcionat no coincideix amb el de cap client.");
+            throw new ExcepcioReserva("El Dni"+ dni_+ "no coincideix amb el de cap client.");
         }
     }
     public static InAllotjament.Temp getTemporada(LocalDate data){
