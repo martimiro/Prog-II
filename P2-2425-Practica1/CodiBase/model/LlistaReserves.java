@@ -83,8 +83,8 @@ public class LlistaReserves implements InLlistaReserves {
 
         } else {
 
-            throw new ExcepcioReserva("“L’allotjament amb identificador" + allotjament.getId() + "no està disponible en la data\n" +
-                    "demanada" + dataEntrada.toString() + "pel client" + client.getNom() + "amb DNI: "+client.getDni());
+            throw new ExcepcioReserva("“L’allotjament amb identificador " + allotjament.getId() + " no està disponible en la data\n" +
+                    "demanada " + dataEntrada.toString() + " pel client " + client.getNom() + " amb DNI: "+client.getDni());
 
         }
     }
