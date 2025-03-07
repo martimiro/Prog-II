@@ -17,7 +17,9 @@ public class Reserva {
             setDataEntrada(dataEntrada);
             setDataSortida(dataSortida);
         } else {
-            throw new ExcepcioReserva("Aquesta reserva no compleix l'estada mínima.");
+            throw new ExcepcioReserva("Les dates sol·licitades pel client "+ client.getNom() +" amb DNI: "+ client.getDni() +"\n no compleixen" +
+                    " l'estada mínima per l'allotjament amb identificador " + allotjament.getId() + ".");
+
         }
 
     }
