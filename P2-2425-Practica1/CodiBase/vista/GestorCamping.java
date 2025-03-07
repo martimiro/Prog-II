@@ -4,6 +4,8 @@ package prog2.vista.vista;
 import prog2.vista.model.Camping;
 import prog2.vista.model.Camping;
 
+import java.time.LocalDate;
+
 
 /**
  * Classe per gestionar els allotjaments del Càmping del Mar.
@@ -22,23 +24,27 @@ public class GestorCamping {
         
         ferReserves(campingMar);
 
+        float midaTotal;
 
-
+        midaTotal = campingMar.calculMidaTotalParceles();
         // Calcular la mida total de les parcel·les (en M^2) del Càmping i mostrar un missatge de la següent manera:
         // >> La mida total de les parcel·les del Càmping del Mar és de X m^2)
         //--------------------------------------------------------------------------------------------------------------------
         // Per completar
-
+        System.out.println(">> La mida total de les parcel·les del Càmping del Mar és de "+midaTotal+" m²");
 
         // Mostrar el número total d'allotjaments del Càmping i el número d'allotjaments que estan operatius amb el següent missatge:
         // >> El número total d'allotjaments del Càmping és X dels quals X allotjaments estan operatius.
         //--------------------------------------------------------------------------------------------------
         // Per completar
+        System.out.println(">> El número total d'allotjaments del Càmping és de "+campingMar.getNumAllotjaments()+" dels quals "+campingMar.calculAllotjamentsOperatius()+ " allotjaments estan operatius.");
 
         // Mostrar l'allotjament amb estada mínima de la temporada baixa més curta amb el següent missatge:
         // >> L'allotjament amb estada mínima de la temporada baixa més curta és el següent:
         //--------------------------------------------------------------------------------------------------
         // Per completar
+        System.out.println(">> L'allotjament amb estada mínima de la temporada baixa més curta és el següent: \n");
+        System.out.println(campingMar.getAllotjamentEstadaMesCurta().toString());
        
     }
     
@@ -188,11 +194,16 @@ public class GestorCamping {
      * @param camping
      */
     private static void ferReserves(Camping camping){
-        
+
+        LocalDate dataEntrada;
+        LocalDate dataSortida;
+        String idAllotjament;
+        String dniClient;
         // Per completar:
         
         // 1. Afegeix una reserva pel client amb DNI "12345678X" de l'allotjament amb identificador "100P"
         // amb la data d'entrada 20 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
+
 
         // Declarar les variables de tipus String idAllotjament i dni.
         // Per completar
@@ -205,6 +216,17 @@ public class GestorCamping {
 
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
+        dataEntrada = LocalDate.of(2025,2,20);
+        dataSortida = LocalDate.of(2025,2,28);
+        idAllotjament = "100P";
+        dniClient = "12345678X";
+
+        try{
+            camping.afegirReserva(idAllotjament,dniClient,dataEntrada,dataSortida );
+        } catch (ExcepcioReserva e){
+
+            System.err.println(e.getMessage());
+        }
         
         // 2. Afegeix una reserva pel client amb DNI "78659101A" de l'allotjament amb identificador "100P"
         // amb la data d'entrada 25 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
@@ -214,6 +236,19 @@ public class GestorCamping {
 
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
+
+        dataEntrada = LocalDate.of(2025,2,25);
+        dataSortida = LocalDate.of(2025,2,28);
+        idAllotjament = "100P";
+        dniClient = "78659101A";
+
+        try{
+            camping.afegirReserva(idAllotjament,dniClient,dataEntrada,dataSortida );
+
+        } catch (ExcepcioReserva e){
+
+            System.err.println(e.getMessage());
+        }
            
         // 3. Afegeix una reserva pel client amb DNI "789101A" de l'allotjament amb identificador "300S"
         // amb la data d'entrada 25 de Febrer del 2025 i data de sortida 28 de febrer del 2025.
@@ -223,6 +258,18 @@ public class GestorCamping {
 
         // Intentar afegir la reserva amb la informació indicada i si no és possible mostrar el missatge d'error.
         // Per completar
+        dataEntrada = LocalDate.of(2025,2,25);
+        dataSortida = LocalDate.of(2025,2,28);
+        idAllotjament = "300S";
+        dniClient = "789101A";
+
+        try{
+            camping.afegirReserva(idAllotjament,dniClient,dataEntrada,dataSortida );
+
+        } catch (ExcepcioReserva e){
+
+            System.err.println(e.getMessage());
+        }
         
     }
     

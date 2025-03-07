@@ -11,9 +11,9 @@ import java.time.LocalDate;
 public class Camping implements InCamping {
     //Atributs
     private String nom;
-    private ArrayList<Allotjament> allotjaments;
-    private ArrayList<Client> clients;
-    private LlistaReserves reserves;
+    private ArrayList<Allotjament> allotjaments = new ArrayList<Allotjament>();
+    private ArrayList<Client> clients = new ArrayList<Client>();
+    private LlistaReserves reserves = new LlistaReserves();
 
     // Constructor:
     public Camping(String nom) {
@@ -113,7 +113,13 @@ public class Camping implements InCamping {
 
     public void afegirParcela(String nom_, String idAllotjament_, float metres, boolean connexioElectrica) {
 
-        if (!allotjamentRepetit(idAllotjament_)) {
+        if(allotjaments.isEmpty()){
+
+            Parcela parcelaNova = new Parcela(nom_, idAllotjament_, metres, connexioElectrica);
+            allotjaments.addLast(parcelaNova);
+
+        }
+        else if (!allotjamentRepetit(idAllotjament_)) {
 
             Parcela parcelaNova = new Parcela(nom_, idAllotjament_, metres, connexioElectrica);
             allotjaments.addLast(parcelaNova);
@@ -126,7 +132,13 @@ public class Camping implements InCamping {
     public void afegirBungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                int placesParquing, boolean terrassa, boolean tv, boolean aireFred) {
 
-        if (!allotjamentRepetit(idAllotjament_)) {
+        if(allotjaments.isEmpty()){
+
+            Bungalow bungalowNou = new Bungalow(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+            allotjaments.addLast(bungalowNou);
+
+        }
+        else if (!allotjamentRepetit(idAllotjament_)) {
 
             Bungalow bungalowNou = new Bungalow(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
             allotjaments.addLast(bungalowNou);
@@ -139,7 +151,14 @@ public class Camping implements InCamping {
     public void afegirBungalowPremium(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                       int placesParquing, boolean terrassa, boolean tv, boolean aireFred,
                                       boolean serveisExtra, String codiWifi) {
-        if (!allotjamentRepetit(idAllotjament_)) {
+
+        if(allotjaments.isEmpty()){
+
+            BungalowPremium bungalowPremiumNou = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
+            allotjaments.addLast(bungalowPremiumNou);
+
+        }
+        else if (!allotjamentRepetit(idAllotjament_)) {
 
             BungalowPremium bungalowPremiumNou = new BungalowPremium(nom_, idAllotjament_, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred, serveisExtra, codiWifi);
             allotjaments.addLast(bungalowPremiumNou);
@@ -151,10 +170,17 @@ public class Camping implements InCamping {
 
     public void afegirGlamping(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                String material, boolean casaMascota) {
-        if (!allotjamentRepetit(idAllotjament_)) {
 
-        Glamping glampingNou = new Glamping(nom_, idAllotjament_, mida, habitacions, placesPersones, material, casaMascota);
-        allotjaments.addLast(glampingNou);
+        if(allotjaments.isEmpty()){
+
+            Glamping glampingNou = new Glamping(nom_, idAllotjament_, mida, habitacions, placesPersones, material, casaMascota);
+            allotjaments.addLast(glampingNou);
+
+        }
+        else if (!allotjamentRepetit(idAllotjament_)) {
+
+            Glamping glampingNou = new Glamping(nom_, idAllotjament_, mida, habitacions, placesPersones, material, casaMascota);
+            allotjaments.addLast(glampingNou);
 
         } else {
             System.out.println("Ja existeix un allotjament amb aquesta Id.");
@@ -164,10 +190,17 @@ public class Camping implements InCamping {
 
     public void afegirMobilHome(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                                 boolean terrassaBarbacoa) {
-        if (!allotjamentRepetit(idAllotjament_)) {
 
-        MobilHome mobilHomeNou = new MobilHome(nom_, idAllotjament_, mida, habitacions, placesPersones, terrassaBarbacoa);
-        allotjaments.addLast(mobilHomeNou);
+        if(allotjaments.isEmpty()){
+
+            MobilHome mobilHomeNou = new MobilHome(nom_, idAllotjament_, mida, habitacions, placesPersones, terrassaBarbacoa);
+            allotjaments.addLast(mobilHomeNou);
+
+        }
+        else if (!allotjamentRepetit(idAllotjament_)) {
+
+            MobilHome mobilHomeNou = new MobilHome(nom_, idAllotjament_, mida, habitacions, placesPersones, terrassaBarbacoa);
+            allotjaments.addLast(mobilHomeNou);
 
         } else {
             System.out.println("Ja existeix un allotjament amb aquesta Id.");

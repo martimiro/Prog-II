@@ -7,9 +7,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class LlistaReserves implements InLlistaReserves {
-
+    //Atributs:
     private ArrayList <Reserva> llista;
 
+    //constructor:
+    public LlistaReserves(){
+        this.llista = new ArrayList<Reserva>();
+    }
+    //Getters:
     public int getNumReserves() {
         return llista.size();
     }
@@ -32,7 +37,7 @@ public class LlistaReserves implements InLlistaReserves {
         }
         return llistaId;
     }
-
+    //Altres:
     public boolean datesSuperposadesMetode(Reserva reserva, LocalDate dataEntrada, LocalDate dataSortida){
         boolean iniciDates,finalDates;
 
@@ -78,7 +83,8 @@ public class LlistaReserves implements InLlistaReserves {
 
         } else {
 
-            throw new ExcepcioReserva("Aquestes dates coincideixen amb les d'una altre reserva.");
+            throw new ExcepcioReserva("“L’allotjament amb identificador" + allotjament.getId() + "no està disponible en la data\n" +
+                    "demanada" + dataEntrada.toString() + "pel client" + client.getNom() + "amb DNI: "+client.getDni());
 
         }
     }
