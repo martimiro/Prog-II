@@ -35,6 +35,7 @@ public class Parcela extends Allotjament {
     }
 
     public String toString(){
-        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", mida: " + getMida() + ", connexió: " + isConnexioElectrica();
+        return "Nom: " + super.getNom() + ", ID allotjament: " + super.getId() + ", estada minima en temp ALTA: " +
+                super.getEstadaMinima(Temp.ALTA) + ", estada minima en temp BAIXA: " + super.getEstadaMinima(Temp.BAIXA);
     }
 }

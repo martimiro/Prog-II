@@ -158,10 +158,10 @@ public class CampingTest {
      */
     @Test
     void testGetTemporada() {
-        assertEquals(InAllotjament.Temp.ALTA, Camping.getTemporada(LocalDate.of(2024, 6, 1)));
-        assertEquals(InAllotjament.Temp.BAIXA, Camping.getTemporada(LocalDate.of(2024, 12, 1)));
-        assertEquals(InAllotjament.Temp.ALTA, Camping.getTemporada(LocalDate.of(2024, 3, 21)));
-        assertEquals(InAllotjament.Temp.BAIXA, Camping.getTemporada(LocalDate.of(2024, 3, 20)));
+        assertEquals(InAllotjament.Temp.ALTA, Camping.getTemporada(LocalDate.of(2025, 6, 1)));
+        assertEquals(InAllotjament.Temp.BAIXA, Camping.getTemporada(LocalDate.of(2025, 12, 1)));
+        assertEquals(InAllotjament.Temp.ALTA, Camping.getTemporada(LocalDate.of(2025, 3, 21)));
+        assertEquals(InAllotjament.Temp.BAIXA, Camping.getTemporada(LocalDate.of(2025, 3, 20)));
     }
 
 

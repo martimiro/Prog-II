@@ -12,7 +12,7 @@ class AllotjamentTest {
     void setUp() {
         // Creem una instància anònima d'Allotjament per a tests
 
-        allotjament = new Allotjament( "ID001","Allotjament Test", 5, 3) {
+        allotjament = new Allotjament("Allotjament Test", "ID001", 5, 3) {
             @Override
             public boolean correcteFuncionament() {
                 return false;
