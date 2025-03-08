@@ -74,6 +74,8 @@ public class Camping implements InCamping {
 
         return clients.size();
     }
+    //Com diu el nom revisa a allotjaments que el allotjament nou no estigui ja registrat. En el cas d'estar allotjaments buit
+    //no funcionaria pero s'ha implementat a cadascun dels afegir "allotjament" una solució per a evitar-ho.
     public boolean allotjamentRepetit(String id_){
 
         boolean repetit = false;
@@ -110,7 +112,8 @@ public class Camping implements InCamping {
         }
 
     }
-
+    //Afegir allotjaments:
+    //Aquests mètodes revisen primerament si la llista d'allotjaments està buida per evitar que la funció allotjament repetit falli.
     public void afegirParcela(String nom_, String idAllotjament_, float metres, boolean connexioElectrica) {
 
         if(allotjaments.isEmpty()){
@@ -216,10 +219,16 @@ public class Camping implements InCamping {
         clientActual = buscaClient(dni_);
         allotjamentActual = buscaAllotjament(id_);
 
-        reserves.afegirReserva(allotjamentActual,clientActual,dataEntrada,dataSortida);
+        if(allotjamentActual.correcteFuncionament()) {
+
+            reserves.afegirReserva(allotjamentActual, clientActual, dataEntrada, dataSortida);
+        } else {
+            throw new ExcepcioReserva("La reserva de l'allotjament amb id "+id_+ " per el client "+clientActual.getNom()+ " amb DNI: "+clientActual.getDni()+ "" +
+                    " No s'ha pogut efectuar degut al incorrecte funcionament de l'allotjament.");
+        }
     }
 
-
+    //El mètode recorre tots els allotjaments registrats i en cas d'obtindre un true a correctefuncionament suma 1 a comptador.
     public int calculAllotjamentsOperatius() {
         int comptador = 0;
         Allotjament allotjamentActual;
@@ -255,7 +264,7 @@ public class Camping implements InCamping {
         }
         return allotjamentMinim;
     }
-
+    //busca dins els allotjaments un allotjament amb la mateixa id.
     public Allotjament buscaAllotjament(String id_) throws ExcepcioReserva{
 
         Allotjament allotjamentActual = null;
@@ -275,7 +284,7 @@ public class Camping implements InCamping {
 
         return allotjamentActual;
     }
-
+    //Busca dins els clients un client amb el mateix dni
     public Client buscaClient(String dni_) throws ExcepcioReserva{
 
         boolean condicio = false;
@@ -300,6 +309,7 @@ public class Camping implements InCamping {
             throw new ExcepcioReserva("El Dni"+ dni_+ "no coincideix amb el de cap client.");
         }
     }
+
     public static InAllotjament.Temp getTemporada(LocalDate data){
 
         LocalDate tempAltaInici = LocalDate.of(2025, 3, 21);

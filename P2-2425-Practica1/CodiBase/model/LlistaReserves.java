@@ -38,6 +38,7 @@ public class LlistaReserves implements InLlistaReserves {
         return llistaId;
     }
     //Altres:
+    //A partir d'una reserva i unes dates d'entrada i sortida, revisa si en algun moment es superposen els dies.
     public boolean datesSuperposadesMetode(Reserva reserva, LocalDate dataEntrada, LocalDate dataSortida){
         boolean iniciDates,finalDates;
 
@@ -48,7 +49,7 @@ public class LlistaReserves implements InLlistaReserves {
 
         return iniciDates || finalDates;
     }
-
+    //Retorna si el allotjament està disponible per les dates esmentades, a partir de datesSuperposadesMetode i el constructor de Reserva.
     public boolean allotjamentDisponible(Allotjament allotjament, LocalDate dataEntrada, LocalDate dataSortida){
 
         String idAllotjament = allotjament.getId();

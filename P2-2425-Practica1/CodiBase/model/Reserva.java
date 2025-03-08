@@ -76,6 +76,7 @@ public class Reserva {
         }
 
     }
+    //Revisa si la reserva compleix amb l'estada mínima del allotjament i en cas negatiu retorna false.
     public boolean isReserva(Allotjament allotjament,LocalDate dataEntrada,LocalDate dataSortida){
 
         long estadaMinima_,estada;
