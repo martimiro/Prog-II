@@ -12,7 +12,7 @@ class AllotjamentTest {
     void setUp() {
         // Creem una instància anònima d'Allotjament per a tests
 
-        allotjament = new Allotjament("Allotjament Test", "ID001", 5, 3) {
+        allotjament = new Allotjament("ID001", "Allotjament Test", 5, 3) {
             @Override
             public boolean correcteFuncionament() {
                 return false;
@@ -40,7 +40,7 @@ class AllotjamentTest {
 
     @Test
     void testToString() {
-        String expected = "Nom=Allotjament Test, Id=ID001, estada mínima en temp ALTA: 5, estada mínima en temp BAIXA: 3.";
+        String expected = "ID: ID001, Nom: Allotjament Test, Estada minima Temp Baixa: 3, Estada minima Temp Alta: 5";
         assertEquals(expected, allotjament.toString());
     }
 }
