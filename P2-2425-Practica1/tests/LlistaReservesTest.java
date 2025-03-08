@@ -90,6 +90,7 @@ public class LlistaReservesTest {
             fail("L'estada no compleix l'estada mínima.");
         } catch (ExcepcioReserva e) {
             assertTrue(e.getMessage().contains("no compleixen l'estada mínima"));
+            //comentar
         }
 
         // Test de l'estada mínima vàlida

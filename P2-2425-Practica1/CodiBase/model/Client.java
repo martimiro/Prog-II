@@ -12,7 +12,7 @@ public class Client {
             this.setDni(dni);
         } else {
 
-            throw new ExcepcioReserva ("El DNI ha de tindre 9 xifres.");
+            throw new ExcepcioReserva ("El DNI ha de tenir 9 caràcters.");
 
         }
     }
